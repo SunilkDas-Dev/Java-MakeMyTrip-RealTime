@@ -1,0 +1,35 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+spring:
+  application:
+    name: Make-My-Trip-service
+  config:
+    import: configserver:http://localhost:9191
+  boot:
+    admin:
+      client:
+        enabled: true
+        url: http://localhost:1111
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+server:
+  port: 7777
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  tracing:
+    enabled: false
+  zipkin:
+    enabled: false
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+  use-management-port: false
